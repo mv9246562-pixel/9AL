@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>eFootball FanHub • Dream Teams & 2026 Meta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: linear-gradient(to right, #1e293b, #0f172a);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #334155;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #c026d3; /* eFootball purple vibe */
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    .hero {
+      height: 90vh;
+      min-height: 600px;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                  url('https://images.unsplash.com/photo-1553778263-73a83bab8b70?w=1600') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.8rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      color: #94a3b8;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #c026d3;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background: #a21db3;
+      transform: translateY(-3px);
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 3rem;
+      color: #60a5fa;
+    }
+
+    .grid-3, .grid-4 {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+    .card, .player-card {
+      background: #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover, .player-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .card-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card h3 {
+      margin-bottom: 0.8rem;
+    }
+
+    .date {
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    .player-card img, .moments-section img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: top;
+      border-bottom: 4px solid #60a5fa;
+      display: block;
+    }
+
+    .player-card h3, .player-card p {
+      text-align: center;
+      padding: 12px;
+    }
+
+    .players-section {
+      background: #0f172a;
+    }
+
+    .tips-list {
+      max-width: 700px;
+      margin: 0 auto;
+      list-style: none;
+    }
+
+    .tips-list li {
+      background: #1e293b;
+      margin: 1rem 0;
+      padding: 1.2rem 1.8rem;
+      border-radius: 10px;
+      border-left: 5px solid #60a5fa;
+    }
+
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(to bottom, #1e293b, #0f172a);
+    }
+
+    .social-links {
+      margin: 2rem 0;
+    }
+
+    .social-btn {
+      background: #334155;
+      color: white;
+      padding: 12px 28px;
+      margin: 0 10px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .social-btn:hover {
+      background: #60a5fa;
+    }
+
+    footer {
+      background: #020617;
+      text-align: center;
+      padding: 2rem 0;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    .moments-section h2 {
+      color: #c026d3;
+    }
+
+    .moments-section .card img {
+      height: 220px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.8rem; }
+      nav ul { flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #0f172a; display: none; }
+      nav a { margin: 1rem 0; display: block; text-align: center; }
+      /* Add hamburger if you want later with JS */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">eFootball FanHub</div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#players">Players</a></li>
+          <li><a href="#moments">Moments</a></li>
+          <li><a href="#tips">Tips</a></li>
+          <li><a href="#community">Community</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Welcome to eFootball FanHub</h1>
+      <p>Build dream teams • Share epic moments • Master the 2026 meta</p>
+      <a href="#community" class="btn">Join the Discussion →</a>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section id="news" class="section">
+    <div class="container">
+      <h2>Latest eFootball News & Updates</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=800');"></div>
+          <div class="card-body">
+            <h3>Custom Stadiums Fully Live!</h3>
+            <p>Combine colors, choreography, objects — free & premium options now available.</p>
+            <span class="date">Feb 2026</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1624880357910-495f6e6b3665?w=800');"></div>
+          <div class="card-body">
+            <h3>New Epic & POTW Packs Dropping</h3>
+            <p>High-rated beasts like Forlan Epic Starter sets trending hard.</p>
+            <span class="date">Feb 2026</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1553778263-73a83bab8b70?w=800');"></div>
+          <div class="card-body">
+            <h3>Meta Shift: Wingers & B2B Mids OP</h3>
+            <p>Booster packs changing the game — who's your new meta pick?</p>
+            <span class="date">Feb 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Players -->
+  <section id="players" class="section players-section">
+    <div class="container">
+      <h2>Trending Players Right Now (2026 Meta)</h2>
+      <div class="grid-4">
+        <div class="player-card">
+          <img src="https://i.ytimg.com/vi/54NvlOVSzGM/maxresdefault.jpg" alt="Kylian Mbappé 100 OVR Yu-Gi-Oh Highlight">
+          <h3>K. Mbappé</h3>
+          <p>100–102 OVR • Highlight / Yu-Gi-Oh Collab Beast</p>
+        </div>
+        <div class="player-card">
+          <img src="https://i.ytimg.com/vi/RDImpaxmNqI/maxresdefault.jpg" alt="Erling Haaland 103 OVR POTW">
+          <h3>E. Haaland</h3>
+          <p>103 OVR • POTW Goal Machine</p>
+        </div>
+        <div class="player-card">
+          <img src="https://i.ytimg.com/vi/PjDfgSIj-Uk/maxresdefault.jpg" alt="Mbappé Training Max 101+">
+          <h3>K. Mbappé (Max Trained)</h3>
+          <p>101 → 102+ OVR • Free Train Glow-Up</p>
+        </div>
+        <div class="player-card">
+          <img src="https://i.ytimg.com/vi/KemMuTPO3Jo/sddefault.jpg" alt="Mbappé 101 OVR Card">
+          <h3>K. Mbappé</h3>
+          <p>101 OVR • Standard / POTM CF King</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Epic Moments -->
+  <section id="moments" class="section moments-section">
+    <div class="container">
+      <h2>Epic Moments & Celebrations</h2>
+      <div class="grid-3">
+        <div class="card">
+          <img src="https://i.ytimg.com/vi/kXJdGwMNiJw/maxresdefault.jpg" alt="Goal Celebration Comparison">
+          <div class="card-body">
+            <h3>Celebration Fire</h3>
+            <p>2026 goal reactions still hit different!</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://i.ytimg.com/vi/FyfCcGS0hZo/maxresdefault.jpg" alt="Last Minute Goal Drama">
+          <div class="card-body">
+            <h3>Last-Minute Bangers</h3>
+            <p>From PES classics to eFootball 2026 clutch moments</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://i.ytimg.com/vi/54NvlOVSzGM/maxresdefault.jpg" alt="Mbappé in-game action">
+          <div class="card-body">
+            <h3>Mbappé Yu-Gi-Oh Gameplay</h3>
+            <p>Special collab cards tearing up the pitch</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips -->
+  <section id="tips" class="section">
+    <div class="container">
+      <h2>Quick Tips for 2026 Gameplay</h2>
+      <ul class="tips-list">
+        <li>Use PA4 passing + near-post crosses for easy goals in Div 1</li>
+        <li>Custom stadium morale boost: Place crowd close & add lights</li>
+        <li>Train free/standard cards aggressively — many hit 100+ OVR</li>
+        <li>Epic/POTW packs still best value — watch for starter sets</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Community -->
+  <section id="community" class="section cta-section">
+    <div class="container">
+      <h2>Join thousands of eFootball fans</h2>
+      <p>Share squads, rate opponents, discuss patches & meta shifts.</p>
+      <div class="social-links">
+        <a href="#" class="social-btn">Discord</a>
+        <a href="#" class="social-btn">Reddit</a>
+        <a href="#" class="social-btn">X / Twitter</a>
+      </div>
+      <p class="small">Fan-made • Not official Konami • eFootball 2026 vibes only</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 eFootball FanHub • Built for fans in Nairobi ⚽🔥</p>
+    </div>
+  </footer>
+
+</body>
+</html>
